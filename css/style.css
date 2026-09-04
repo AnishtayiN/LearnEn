@@ -310,3 +310,99 @@ select { padding: 10px 16px; border-radius: 12px; border: 1px solid var(--card-b
   .fc-stage { height: 280px; }
   .fc-word { font-size: 1.8rem; }
 }
+
+/* ================== GitHub sign-in ================== */
+.gh-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-radius: 999px;
+  border: 1px solid var(--card-border); background: var(--card); color: var(--text);
+  font-weight: 700; font-size: 0.85rem; transition: 0.2s; max-width: 210px;
+}
+.gh-btn:hover { transform: translateY(-2px); border-color: var(--p2); }
+.gh-btn svg { width: 17px; height: 17px; fill: currentColor; flex: 0 0 auto; }
+.gh-btn.authed { padding: 4px 10px 4px 4px; }
+.gh-ava { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 2px solid var(--p2); flex: 0 0 auto; }
+.gh-ava-lg { width: 64px; height: 64px; border-width: 3px; }
+.gh-login { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gh-verified { color: var(--success); font-weight: 900; flex: 0 0 auto; }
+
+/* مودال */
+.gh-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+  display: none; align-items: center; justify-content: center; padding: 20px;
+}
+.gh-overlay.open { display: flex; }
+.gh-modal {
+  position: relative; width: 100%; max-width: 460px;
+  background: var(--bg2); border: 1px solid var(--card-border);
+  border-radius: 22px; padding: 28px; box-shadow: var(--shadow);
+  max-height: 90vh; overflow-y: auto; animation: fadeUp 0.3s ease;
+}
+.gh-modal h3 { font-size: 1.25rem; margin-bottom: 6px; }
+.gh-close {
+  position: absolute; top: 12px; left: 12px; width: 34px; height: 34px;
+  border-radius: 10px; border: 1px solid var(--card-border);
+  background: var(--card); color: var(--text); font-size: 1.3rem; line-height: 1;
+}
+.gh-close:hover { border-color: var(--danger); color: var(--danger); }
+.gh-sub { color: var(--muted); font-size: 0.9rem; margin: 8px 0; line-height: 1.8; }
+.gh-code {
+  font-family: "Inter", monospace; direction: ltr; text-align: center;
+  font-size: 1.8rem; font-weight: 900; letter-spacing: 6px;
+  padding: 16px; border-radius: 14px; background: var(--card);
+  border: 1px dashed var(--p2); color: var(--p2); margin: 12px 0;
+}
+.gh-spinner {
+  display: inline-block; width: 14px; height: 14px;
+  border: 2px solid var(--card-border); border-top-color: var(--p2);
+  border-radius: 50%; animation: spin 0.8s linear infinite;
+  vertical-align: -2px; margin-left: 6px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.gh-error {
+  color: var(--danger); background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3); border-radius: 12px;
+  padding: 10px 14px; font-size: 0.9rem; margin: 10px 0;
+}
+.gh-note {
+  background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.25);
+  border-radius: 12px; padding: 14px; font-size: 0.85rem;
+  line-height: 2; color: var(--muted);
+}
+.gh-note code {
+  font-family: monospace; direction: ltr; display: inline-block;
+  background: rgba(6,182,212,0.15); padding: 0 6px; border-radius: 6px; color: var(--p2);
+}
+.gh-step { margin-top: 12px; }
+.gh-step .btn { margin-top: 8px; }
+.gh-step a.btn { text-decoration: none; }
+
+/* پروفایل تأییدشده */
+.gh-user { display: flex; gap: 14px; align-items: center; margin: 16px 0; }
+.gh-name { font-weight: 800; font-size: 1.1rem; }
+.gh-at { color: var(--muted); direction: ltr; text-align: left; font-family: Inter, sans-serif; }
+.gh-badge-ok {
+  display: inline-block; margin-top: 6px; padding: 3px 10px; border-radius: 999px;
+  background: rgba(34,197,94,0.15); color: var(--success);
+  font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(34,197,94,0.35);
+}
+.gh-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+.gh-stat { text-align: center; padding: 12px 6px; border-radius: 12px; background: var(--card); border: 1px solid var(--card-border); }
+.gh-stat b { display: block; font-size: 1.2rem; font-weight: 900; }
+.gh-stat span { color: var(--muted); font-size: 0.72rem; }
+.gh-trust { border-radius: 12px; padding: 12px 14px; font-size: 0.85rem; margin-bottom: 16px; }
+.gh-trust b { display: block; margin-bottom: 2px; }
+.gh-trust p { color: var(--muted); }
+.gh-trust.strong { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.35); }
+.gh-trust.strong b { color: var(--success); }
+.gh-trust.medium { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.35); }
+.gh-trust.medium b { color: var(--warn); }
+.gh-trust.new { background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.35); }
+.gh-trust.new b { color: var(--p2); }
+.gh-actions { display: flex; gap: 10px; justify-content: flex-start; flex-wrap: wrap; }
+
+@media (max-width: 800px) {
+  .gh-btn { padding: 7px 10px; }
+  .gh-label { display: none; }
+}
