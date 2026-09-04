@@ -4,21 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LearnEn | یادگیری کامل زبان انگلیسی</title>
-  <meta name="description" content="آموزش رایگان و کامل زبان انگلیسی: گرامر، واژگان، فلش‌کارت، تلفظ، آزمون و پیگیری پیشرفت." />
+  <meta name="description" content="آموزش رایگان و کامل زبان انگلیسی برای فارسی‌زبانان: ۲۷ درس گرامر از A1 تا C1، ۲۷۷ واژه با تلفظ، فلش‌کارت هوشمند، آزمون تعیین سطح و تمرین گفتار." />
+  <meta name="author" content="LearnEn" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="canonical" href="https://anishtayin.github.io/LearnEn/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:site_name" content="LearnEn" />
+  <meta property="og:title" content="LearnEn | یادگیری کامل زبان انگلیسی" />
+  <meta property="og:description" content="۲۷ درس گرامر، ۲۷۷ واژه با تلفظ، فلش‌کارت هوشمند، آزمون تعیین سطح و تمرین گفتار — کاملاً رایگان." />
+  <meta property="og:url" content="https://anishtayin.github.io/LearnEn/" />
+  <meta property="og:image" content="https://anishtayin.github.io/LearnEn/assets/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LearnEn | یادگیری کامل زبان انگلیسی" />
+  <meta name="twitter:description" content="گرامر، واژگان، فلش‌کارت، تلفظ و آزمون — رایگان و بدون ثبت‌نام." />
+  <meta name="twitter:image" content="https://anishtayin.github.io/LearnEn/assets/og-cover.png" />
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <script>
+    // Apply the saved theme before first paint to avoid a flash of the wrong colours.
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("learnen-state-v1") || "{}");
+        var t = s.theme === "light" ? "light" : "dark";
+        document.documentElement.dataset.theme = t;
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", t === "dark" ? "#0b0f1a" : "#f5f7fb");
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
-  <div class="bg-orbs"><span></span><span></span><span></span></div>
+  <a class="skip-link" href="#app">پرش به محتوای اصلی</a>
+  <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
 
   <header class="topbar">
     <a href="#home" class="brand" data-nav="home">
       <span class="brand-logo">🎓</span>
       <span class="brand-text">Learn<b>En</b></span>
     </a>
-    <nav class="nav" id="mainNav">
+    <nav class="nav" id="mainNav" aria-label="ناوبری اصلی">
       <a href="#home" data-nav="home" class="active">خانه</a>
       <a href="#lessons" data-nav="lessons">درس‌ها</a>
       <a href="#vocab" data-nav="vocab">واژگان</a>
@@ -28,11 +63,11 @@
       <a href="#progress" data-nav="progress">پیشرفت</a>
     </nav>
     <div class="top-actions">
-      <div class="streak" title="روزهای متوالی مطالعه">🔥 <span id="streakCount">0</span></div>
-      <div class="xp" title="امتیاز تجربه">⭐ <span id="xpCount">0</span> XP</div>
-      <button class="gh-btn" id="ghAuthBtn" title="احراز هویت با گیت‌هاب"></button>
-      <button class="icon-btn" id="themeToggle" title="تغییر تم">🌙</button>
-      <button class="icon-btn menu-btn" id="menuBtn" title="منو">☰</button>
+      <div class="streak" title="روزهای متوالی مطالعه"><span aria-hidden="true">🔥</span> <span id="streakCount">0</span><span class="sr-only"> روز استریک</span></div>
+      <div class="xp" title="امتیاز تجربه"><span aria-hidden="true">⭐</span> <span id="xpCount">0</span> XP</div>
+      <button class="gh-btn" type="button" id="ghAuthBtn" title="احراز هویت با گیت‌هاب" aria-label="ورود با گیت‌هاب"></button>
+      <button class="icon-btn" type="button" id="themeToggle" title="تغییر تم" aria-label="تغییر تم">🌙</button>
+      <button class="icon-btn menu-btn" type="button" id="menuBtn" title="منو" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mainNav">☰</button>
     </div>
   </header>
 
@@ -61,7 +96,8 @@
               <div class="mini-en" id="wodEn">Hello</div>
               <div class="mini-ph" id="wodPh">/həˈloʊ/</div>
               <div class="mini-fa" id="wodFa">سلام</div>
-              <button class="btn btn-sm" id="wodSpeak">🔊 تلفظ</button>
+              <div class="mini-ex" id="wodEx" lang="en"></div>
+              <button class="btn btn-sm" type="button" id="wodSpeak">🔊 تلفظ</button>
             </div>
             <div class="mini-label">واژهٔ امروز</div>
           </div>
@@ -92,7 +128,7 @@
 
     <!-- lesson detail -->
     <section class="page" id="page-lesson">
-      <button class="btn btn-ghost btn-sm back-btn" data-nav="lessons">→ بازگشت به درس‌ها</button>
+      <button class="btn btn-ghost btn-sm back-btn" type="button" data-nav="lessons">→ بازگشت به درس‌ها</button>
       <article class="lesson-detail" id="lessonDetail"></article>
     </section>
 
@@ -103,8 +139,10 @@
         <p>واژه‌های پرکاربرد با تلفظ، معنی و مثال</p>
       </div>
       <div class="vocab-tools">
-        <input type="search" id="vocabSearch" placeholder="جستجوی واژه (انگلیسی یا فارسی)…" />
+        <label class="sr-only" for="vocabSearch">جستجوی واژه</label>
+        <input type="search" id="vocabSearch" placeholder="جستجوی واژه (انگلیسی یا فارسی)…" autocomplete="off" />
         <div class="filter-bar" id="vocabFilters"></div>
+        <div class="result-count" id="vocabCount" aria-live="polite"></div>
       </div>
       <div class="vocab-grid" id="vocabGrid"></div>
     </section>
@@ -116,27 +154,29 @@
         <p>روی کارت کلیک کنید تا برگردد؛ سپس بگویید چقدر خوب بلد بودید</p>
       </div>
       <div class="fc-controls">
+        <label class="sr-only" for="fcCategory">انتخاب دسته</label>
         <select id="fcCategory"></select>
-        <button class="btn btn-sm" id="fcShuffle">🔀 بُر زدن</button>
-        <span class="fc-counter" id="fcCounter"></span>
+        <button class="btn btn-sm" type="button" id="fcShuffle">🔀 بُر زدن</button>
+        <span class="fc-counter" id="fcCounter" aria-live="polite"></span>
       </div>
       <div class="fc-stage">
-        <div class="flashcard" id="flashcard">
+        <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="کارت — برای برگرداندن کلیک کنید یا Space بزنید">
           <div class="fc-face fc-front">
-            <div class="fc-word" id="fcFront"></div>
-            <div class="fc-ph" id="fcPh"></div>
-            <button class="btn btn-sm fc-speak" id="fcSpeak">🔊</button>
+            <div class="fc-word" id="fcFront" lang="en"></div>
+            <div class="fc-ph" id="fcPh" lang="en"></div>
+            <button class="btn btn-sm fc-speak" type="button" id="fcSpeak" aria-label="تلفظ واژه">🔊</button>
           </div>
           <div class="fc-face fc-back">
             <div class="fc-word" id="fcBack"></div>
-            <div class="fc-example" id="fcExample"></div>
+            <div class="fc-example" id="fcExample" lang="en"></div>
           </div>
         </div>
       </div>
+      <p class="fc-hint">کارت را برگردانید، بعد بگویید چقدر خوب بلد بودید تا زمان مرور بعدی تعیین شود.</p>
       <div class="fc-rate">
-        <button class="btn rate-hard" data-rate="hard">😓 سخت بود</button>
-        <button class="btn rate-ok" data-rate="ok">🙂 متوسط</button>
-        <button class="btn rate-easy" data-rate="easy">😎 آسان</button>
+        <button class="btn rate-hard" type="button" data-rate="hard">😓 سخت بود</button>
+        <button class="btn rate-ok" type="button" data-rate="ok">🙂 متوسط</button>
+        <button class="btn rate-easy" type="button" data-rate="easy">😎 آسان</button>
       </div>
     </section>
 
@@ -148,17 +188,18 @@
       </div>
       <div id="quizSetup" class="quiz-setup">
         <div class="quiz-options" id="quizLevels"></div>
-        <button class="btn btn-primary btn-lg" id="quizStart">شروع آزمون</button>
+        <button class="btn btn-primary btn-lg" type="button" id="quizStart">شروع آزمون</button>
+        <p class="quiz-tip">۱۰ سوال تصادفی • با کلیدهای ۱ تا ۴ هم می‌توانید پاسخ دهید</p>
       </div>
       <div id="quizBox" class="quiz-box hidden">
-        <div class="quiz-progress"><div id="quizBar"></div></div>
+        <div class="quiz-progress" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div id="quizBar"></div></div>
         <div class="quiz-meta"><span id="quizNum"></span><span id="quizScore"></span></div>
-        <h2 class="quiz-q" id="quizQ"></h2>
+        <h2 class="quiz-q" id="quizQ" lang="en"></h2>
         <div class="quiz-answers" id="quizAnswers"></div>
-        <div class="quiz-explain hidden" id="quizExplain"></div>
-        <button class="btn btn-primary hidden" id="quizNext">سوال بعدی →</button>
+        <div class="quiz-explain hidden" id="quizExplain" aria-live="polite"></div>
+        <button class="btn btn-primary hidden" type="button" id="quizNext">سوال بعدی →</button>
       </div>
-      <div id="quizResult" class="quiz-result hidden"></div>
+      <div id="quizResult" class="quiz-result hidden" tabindex="-1" aria-live="polite"></div>
     </section>
 
     <!-- ============ SPEAK ============ -->
@@ -169,15 +210,16 @@
       </div>
       <div class="speak-grid">
         <div class="card-glass speak-card">
-          <div class="speak-label">جملهٔ تمرینی</div>
-          <div class="speak-sentence" id="speakSentence"></div>
+          <div class="speak-label">جملهٔ تمرینی <span class="fc-counter" id="speakCounter"></span></div>
+          <div class="speak-sentence" id="speakSentence" lang="en"></div>
           <div class="speak-fa" id="speakFa"></div>
           <div class="speak-actions">
-            <button class="btn" id="speakListen">🔊 گوش کن</button>
-            <button class="btn btn-primary" id="speakRecord">🎤 تکرار کن</button>
-            <button class="btn btn-ghost" id="speakNext">بعدی ⟵</button>
+            <button class="btn" type="button" id="speakListen">🔊 گوش کن</button>
+            <button class="btn btn-primary" type="button" id="speakRecord">🎤 تکرار کن</button>
+            <button class="btn btn-ghost" type="button" id="speakPrev">⟶ قبلی</button>
+            <button class="btn btn-ghost" type="button" id="speakNext">بعدی ⟵</button>
           </div>
-          <div class="speak-result" id="speakResult"></div>
+          <div class="speak-result" id="speakResult" aria-live="polite"></div>
         </div>
         <div class="card-glass">
           <h3>💬 مکالمات روزمره</h3>
@@ -205,26 +247,44 @@
         <div id="levelProgress"></div>
       </div>
       <div class="card-glass">
-        <h3>🏅 نشان‌ها</h3>
+        <h3>🏅 نشان‌ها <span class="badge-count" id="badgeCount"></span></h3>
         <div class="badges" id="badgesGrid"></div>
       </div>
-      <button class="btn btn-danger" id="resetProgress">پاک‌کردن همهٔ پیشرفت</button>
+      <button class="btn btn-danger" type="button" id="resetProgress">پاک‌کردن همهٔ پیشرفت</button>
     </section>
   </main>
 
   <footer class="footer">
-    <p>ساخته‌شده با ❤️ برای فارسی‌زبانان • <a href="https://github.com/AnishtayiN/LearnEn" target="_blank" rel="noopener">GitHub</a></p>
+    <p>ساخته‌شده با ❤️ برای فارسی‌زبانان • <a href="https://github.com/AnishtayiN/LearnEn" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    <p class="footer-note">همهٔ پیشرفت شما فقط در مرورگر خودتان ذخیره می‌شود و به هیچ سروری ارسال نمی‌گردد.</p>
   </footer>
 
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <!-- مودال ورود با گیت‌هاب -->
   <div class="gh-overlay" id="ghModal" aria-hidden="true">
     <div class="gh-modal" role="dialog" aria-modal="true" aria-labelledby="ghModalTitle">
-      <button class="gh-close" id="ghClose" title="بستن">×</button>
+      <button class="gh-close" type="button" id="ghClose" title="بستن" aria-label="بستن">×</button>
       <div id="ghModalBody"></div>
     </div>
   </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "LearnEn — یادگیری کامل زبان انگلیسی",
+    "description": "دورهٔ رایگان زبان انگلیسی برای فارسی‌زبانان: گرامر A1 تا C1، واژگان با تلفظ، فلش‌کارت، آزمون و تمرین گفتار.",
+    "inLanguage": "fa",
+    "isAccessibleForFree": true,
+    "provider": { "@type": "Organization", "name": "LearnEn", "url": "https://anishtayin.github.io/LearnEn/" },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "courseWorkload": "PT20H"
+    }
+  }
+  </script>
 
   <script src="js/data.js"></script>
   <script src="js/auth.js"></script>

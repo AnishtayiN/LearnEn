@@ -1,0 +1,24 @@
+{
+  "name": "LearnEn — یادگیری کامل زبان انگلیسی",
+  "short_name": "LearnEn",
+  "description": "آموزش رایگان زبان انگلیسی برای فارسی‌زبانان: گرامر، واژگان، فلش‌کارت، تلفظ و آزمون.",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0f1a",
+  "theme_color": "#0b0f1a",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "درس‌ها", "url": "./#lessons" },
+    { "name": "فلش‌کارت", "url": "./#flashcards" },
+    { "name": "آزمون", "url": "./#quiz" }
+  ]
+}
