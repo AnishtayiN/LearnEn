@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnEn | یادگیری کامل زبان انگلیسی</title>
+  <meta name="description" content="آموزش رایگان و کامل زبان انگلیسی: گرامر، واژگان، فلش‌کارت، تلفظ، آزمون و پیگیری پیشرفت." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg-orbs"><span></span><span></span><span></span></div>
+
+  <header class="topbar">
+    <a href="#home" class="brand" data-nav="home">
+      <span class="brand-logo">🎓</span>
+      <span class="brand-text">Learn<b>En</b></span>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="#home" data-nav="home" class="active">خانه</a>
+      <a href="#lessons" data-nav="lessons">درس‌ها</a>
+      <a href="#vocab" data-nav="vocab">واژگان</a>
+      <a href="#flashcards" data-nav="flashcards">فلش‌کارت</a>
+      <a href="#quiz" data-nav="quiz">آزمون</a>
+      <a href="#speak" data-nav="speak">تلفظ</a>
+      <a href="#progress" data-nav="progress">پیشرفت</a>
+    </nav>
+    <div class="top-actions">
+      <div class="streak" title="روزهای متوالی مطالعه">🔥 <span id="streakCount">0</span></div>
+      <div class="xp" title="امتیاز تجربه">⭐ <span id="xpCount">0</span> XP</div>
+      <button class="icon-btn" id="themeToggle" title="تغییر تم">🌙</button>
+      <button class="icon-btn menu-btn" id="menuBtn" title="منو">☰</button>
+    </div>
+  </header>
+
+  <main id="app">
+
+    <!-- ============ HOME ============ -->
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-text">
+          <span class="badge">۱۰۰٪ رایگان • بدون نیاز به ثبت‌نام</span>
+          <h1>انگلیسی را <span class="grad">کامل</span> و <span class="grad">اصولی</span> یاد بگیرید</h1>
+          <p>از الفبا تا مکالمهٔ پیشرفته. گرامر گام‌به‌گام، ۵۰۰+ واژهٔ پرکاربرد با تلفظ، فلش‌کارت هوشمند، آزمون‌های تعاملی و پیگیری پیشرفت — همه در یک‌جا.</p>
+          <div class="hero-actions">
+            <a href="#lessons" class="btn btn-primary" data-nav="lessons">شروع یادگیری →</a>
+            <a href="#quiz" class="btn btn-ghost" data-nav="quiz">تعیین سطح</a>
+          </div>
+          <div class="hero-stats">
+            <div><b id="statLessons">0</b><span>درس</span></div>
+            <div><b id="statWords">0</b><span>واژه</span></div>
+            <div><b id="statQuestions">0</b><span>سوال</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="card-glass float">
+            <div class="mini-word">
+              <div class="mini-en" id="wodEn">Hello</div>
+              <div class="mini-ph" id="wodPh">/həˈloʊ/</div>
+              <div class="mini-fa" id="wodFa">سلام</div>
+              <button class="btn btn-sm" id="wodSpeak">🔊 تلفظ</button>
+            </div>
+            <div class="mini-label">واژهٔ امروز</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">مسیر یادگیری شما</h2>
+      <div class="levels-grid" id="levelsGrid"></div>
+
+      <h2 class="section-title">چرا LearnEn؟</h2>
+      <div class="features">
+        <div class="feature"><div class="f-icon">📚</div><h3>گرامر جامع</h3><p>از زمان‌ها تا جملات شرطی و مجهول، با مثال و ترجمه.</p></div>
+        <div class="feature"><div class="f-icon">🗣️</div><h3>تلفظ و شنیدن</h3><p>تلفظ هر واژه با صدای بومی و تمرین تشخیص گفتار.</p></div>
+        <div class="feature"><div class="f-icon">🧠</div><h3>فلش‌کارت هوشمند</h3><p>مرور فاصله‌دار (Spaced Repetition) برای حفظ بلندمدت.</p></div>
+        <div class="feature"><div class="f-icon">🏆</div><h3>گیمیفیکیشن</h3><p>XP، استریک روزانه و نشان‌ها تا انگیزه‌تان کم نشود.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ LESSONS ============ -->
+    <section class="page" id="page-lessons">
+      <div class="page-head">
+        <h1>📚 درس‌ها</h1>
+        <p>گرامر و مهارت‌های زبان، سطح‌بندی شده از مبتدی تا پیشرفته</p>
+      </div>
+      <div class="filter-bar" id="lessonFilters"></div>
+      <div class="lessons-grid" id="lessonsGrid"></div>
+    </section>
+
+    <!-- lesson detail -->
+    <section class="page" id="page-lesson">
+      <button class="btn btn-ghost btn-sm back-btn" data-nav="lessons">→ بازگشت به درس‌ها</button>
+      <article class="lesson-detail" id="lessonDetail"></article>
+    </section>
+
+    <!-- ============ VOCAB ============ -->
+    <section class="page" id="page-vocab">
+      <div class="page-head">
+        <h1>📖 واژگان</h1>
+        <p>واژه‌های پرکاربرد با تلفظ، معنی و مثال</p>
+      </div>
+      <div class="vocab-tools">
+        <input type="search" id="vocabSearch" placeholder="جستجوی واژه (انگلیسی یا فارسی)…" />
+        <div class="filter-bar" id="vocabFilters"></div>
+      </div>
+      <div class="vocab-grid" id="vocabGrid"></div>
+    </section>
+
+    <!-- ============ FLASHCARDS ============ -->
+    <section class="page" id="page-flashcards">
+      <div class="page-head">
+        <h1>🧠 فلش‌کارت</h1>
+        <p>روی کارت کلیک کنید تا برگردد؛ سپس بگویید چقدر خوب بلد بودید</p>
+      </div>
+      <div class="fc-controls">
+        <select id="fcCategory"></select>
+        <button class="btn btn-sm" id="fcShuffle">🔀 بُر زدن</button>
+        <span class="fc-counter" id="fcCounter"></span>
+      </div>
+      <div class="fc-stage">
+        <div class="flashcard" id="flashcard">
+          <div class="fc-face fc-front">
+            <div class="fc-word" id="fcFront"></div>
+            <div class="fc-ph" id="fcPh"></div>
+            <button class="btn btn-sm fc-speak" id="fcSpeak">🔊</button>
+          </div>
+          <div class="fc-face fc-back">
+            <div class="fc-word" id="fcBack"></div>
+            <div class="fc-example" id="fcExample"></div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-rate">
+        <button class="btn rate-hard" data-rate="hard">😓 سخت بود</button>
+        <button class="btn rate-ok" data-rate="ok">🙂 متوسط</button>
+        <button class="btn rate-easy" data-rate="easy">😎 آسان</button>
+      </div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section class="page" id="page-quiz">
+      <div class="page-head">
+        <h1>📝 آزمون</h1>
+        <p>دانش خود را بسنجید و XP بگیرید</p>
+      </div>
+      <div id="quizSetup" class="quiz-setup">
+        <div class="quiz-options" id="quizLevels"></div>
+        <button class="btn btn-primary btn-lg" id="quizStart">شروع آزمون</button>
+      </div>
+      <div id="quizBox" class="quiz-box hidden">
+        <div class="quiz-progress"><div id="quizBar"></div></div>
+        <div class="quiz-meta"><span id="quizNum"></span><span id="quizScore"></span></div>
+        <h2 class="quiz-q" id="quizQ"></h2>
+        <div class="quiz-answers" id="quizAnswers"></div>
+        <div class="quiz-explain hidden" id="quizExplain"></div>
+        <button class="btn btn-primary hidden" id="quizNext">سوال بعدی →</button>
+      </div>
+      <div id="quizResult" class="quiz-result hidden"></div>
+    </section>
+
+    <!-- ============ SPEAK ============ -->
+    <section class="page" id="page-speak">
+      <div class="page-head">
+        <h1>🗣️ تلفظ و مکالمه</h1>
+        <p>جمله را بشنوید، تکرار کنید و بازخورد بگیرید</p>
+      </div>
+      <div class="speak-grid">
+        <div class="card-glass speak-card">
+          <div class="speak-label">جملهٔ تمرینی</div>
+          <div class="speak-sentence" id="speakSentence"></div>
+          <div class="speak-fa" id="speakFa"></div>
+          <div class="speak-actions">
+            <button class="btn" id="speakListen">🔊 گوش کن</button>
+            <button class="btn btn-primary" id="speakRecord">🎤 تکرار کن</button>
+            <button class="btn btn-ghost" id="speakNext">بعدی ⟵</button>
+          </div>
+          <div class="speak-result" id="speakResult"></div>
+        </div>
+        <div class="card-glass">
+          <h3>💬 مکالمات روزمره</h3>
+          <div class="dialog-list" id="dialogList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROGRESS ============ -->
+    <section class="page" id="page-progress">
+      <div class="page-head">
+        <h1>📊 پیشرفت شما</h1>
+        <p>همهٔ اطلاعات به‌صورت محلی در مرورگر شما ذخیره می‌شود</p>
+      </div>
+      <div class="progress-grid">
+        <div class="card-glass stat"><div class="stat-num" id="pXp">0</div><div>XP کل</div></div>
+        <div class="card-glass stat"><div class="stat-num" id="pStreak">0</div><div>روز استریک</div></div>
+        <div class="card-glass stat"><div class="stat-num" id="pLessons">0</div><div>درس تکمیل‌شده</div></div>
+        <div class="card-glass stat"><div class="stat-num" id="pWords">0</div><div>واژهٔ یادگرفته</div></div>
+        <div class="card-glass stat"><div class="stat-num" id="pQuizzes">0</div><div>آزمون انجام‌شده</div></div>
+        <div class="card-glass stat"><div class="stat-num" id="pAcc">0%</div><div>دقت آزمون</div></div>
+      </div>
+      <div class="card-glass">
+        <h3>پیشرفت هر سطح</h3>
+        <div id="levelProgress"></div>
+      </div>
+      <div class="card-glass">
+        <h3>🏅 نشان‌ها</h3>
+        <div class="badges" id="badgesGrid"></div>
+      </div>
+      <button class="btn btn-danger" id="resetProgress">پاک‌کردن همهٔ پیشرفت</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>ساخته‌شده با ❤️ برای فارسی‌زبانان • <a href="https://github.com/AnishtayiN/LearnEn" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
