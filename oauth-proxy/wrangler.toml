@@ -1,0 +1,9 @@
+# LearnEn OAuth Proxy — تنظیمات Cloudflare Workers
+# CLIENT_ID و (در صورت تمایل) ALLOWED_ORIGIN را از داشبورد یا با wrangler secret
+# مقداردهی کنید؛ هیچ client_secret ای لازم نیست (Device Flow).
+name = "learnen-oauth-proxy"
+main = "worker.js"
+compatibility_date = "2026-09-04"
+
+# [vars]
+# ALLOWED_ORIGIN = "https://anishtayin.github.io"

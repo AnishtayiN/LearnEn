@@ -30,6 +30,7 @@
     <div class="top-actions">
       <div class="streak" title="روزهای متوالی مطالعه">🔥 <span id="streakCount">0</span></div>
       <div class="xp" title="امتیاز تجربه">⭐ <span id="xpCount">0</span> XP</div>
+      <button class="gh-btn" id="ghAuthBtn" title="احراز هویت با گیت‌هاب"></button>
       <button class="icon-btn" id="themeToggle" title="تغییر تم">🌙</button>
       <button class="icon-btn menu-btn" id="menuBtn" title="منو">☰</button>
     </div>
@@ -217,7 +218,16 @@
 
   <div class="toast" id="toast"></div>
 
+  <!-- مودال ورود با گیت‌هاب -->
+  <div class="gh-overlay" id="ghModal" aria-hidden="true">
+    <div class="gh-modal" role="dialog" aria-modal="true" aria-labelledby="ghModalTitle">
+      <button class="gh-close" id="ghClose" title="بستن">×</button>
+      <div id="ghModalBody"></div>
+    </div>
+  </div>
+
   <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
